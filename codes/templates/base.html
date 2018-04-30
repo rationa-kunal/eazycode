@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+    {% block titleblock %}
+    <title>eazycode</title>
+    {% endblock %}
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href="{% static "codes/css/prism.css" %}">
+
+</head>
+<body>
+
+
+  <nav class="uk-navbar-container" uk-navbar="boundary-align: true; align: center;">
+    <div class="uk-navbar">
+      <ul class="uk-navbar-nav">
+
+        <li class="uk-background-secondary uk-light uk-panel"><a href="{% url 'homepage' %}" class="uk-h4 uk-light" style="font-family: 'Comfortaa', cursive"> brand name </a></li>
+
+        <li>
+          <a href="#">Menu</a>
+          <div class="uk-navbar-dropdown uk-navbar-dropdown-width-5">
+            <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
+
+              {% for dept in departments %}
+              <div>
+
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                  <li class="uk-active">{{ dept.name }}</li>
+
+                  {% for subject in dept.subject_set.all %}
+                  <li><a href="{% url 'detail_subject' subject.id %}">{{subject.name}}</a></li>
+                  {% endfor %}
+
+                </ul>
+
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+
+  <main>
+
+      {% block mainblock %}{% endblock %}
+
+  </main>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+  {% load static %}
+  <script src="{% static "codes/js/prism.js" %}"></script>
+  <script src="{% static "codes/js/sketch.min.js" %}"></script>
+
+  {% block scriptblock %}{% endblock %}
+
+</body>
+</html>

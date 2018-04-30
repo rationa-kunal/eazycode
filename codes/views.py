@@ -9,25 +9,33 @@ def index(request):
         'departments' : departments,
     }
 
-    return render(request, 'codes/index.html', context)
+    return render(request, 'codes/homepage.html', context)
 
 
-def view_codes(request, depart_id, subject_id, practicle_id):
+def detail_subject(request, subject_id):
     departments = Department.objects.all()
-    sub = Subject.objects.get(id=subject_id)
-    sub_practicles = sub.practicle_set.all()
-    pract = Practicle.objects.get(id=practicle_id)
+    subject = Subject.objects.get(id=subject_id)
+    practicles = subject.practicle_set.all()
 
     context = {
         'departments' : departments,
-        'sub_practicles' : sub_practicles,
-        'sub' : sub,
-        'pract' : pract,
+        'subject' : subject,
+        'practicles' : practicles,
     }
 
-    return render(request, 'codes/base.html', context)
+    return render(request, 'codes/detailsubject.html', context)
 
-def view_pre_codes(request, depart_id, subject_id):
-    pract = Subject.objects.get(id=subject_id).practicle_set.all()
-    pract = pract[0]
-    return view_codes(request, depart_id, subject_id, pract.id)
+def detail_practicle(request, practicle_id):
+    departments = Department.objects.all()
+    practicle = Practicle.objects.get(id=practicle_id)
+    subject = practicle.subject
+    practicles = subject.practicle_set.all()
+
+    context ={
+        'departments' : departments,
+        'practicle' : practicle,
+        'subject' : subject,
+        'practicles' : practicles,
+    }
+
+    return render(request, 'codes/detailpracticle.html', context)

@@ -1,0 +1,58 @@
+{% include "base.html" %}
+
+
+{% block titleblock %}
+
+<title>{{ subject.name }} - eazycodes</title>
+
+{% endblock %}
+
+
+{% block maniblock %}
+
+<div class="uk-container" style="margin-top:24px; margin-bottom:24px;" id="inner-cont">
+  <div class="" uk-grid>
+
+    <div class="uk-width-1-4@m">
+      <div class="uk-card uk-card-default uk-card-body uk-width-auto@m" uk-sticky="offset: 20">
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+          <li class="uk-nav-header">{{ subject.name }}</li>
+          <li><a href="#top"><span class="uk-margin-small-right" uk-icon="icon: chevron-up"></span> top</a></li>
+
+          {% for p in practicles %}
+          <li><a href="{% url 'detail_practicle' p.id %}"><span class="uk-margin-small-right" uk-icon="icon: code"></span> {{p.aim}}</a></li>
+          {% endfor %}
+
+          <li class="uk-nav-divider"></li>
+          <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: download"></span> Item</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="uk-width-expand@m">
+      <div class="uk-card uk-card-default uk-card-body">
+
+        <article class="uk-article">
+
+          <h1 class="uk-article-title"><a class="uk-link-reset" href="#">{{ practicle.aim }}</a></h1>
+
+          <p class="uk-article-meta">Written by <a href="#">Kunal</a></p>
+
+          <p>{{ practicle.description }}</p>
+
+          <hr>
+
+          <pre><code class="language-cpp">
+            {{ practicle.code }}
+          </code></pre>
+
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

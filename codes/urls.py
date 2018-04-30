@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from . import views
 
 urlpatterns = [
-    url(r'(?P<depart_id>[0-9]+)/(?P<subject_id>[0-9]+)/(?P<practicle_id>[0-9]+)/$', views.view_codes, name='codes'),
-    url(r'(?P<depart_id>[0-9]+)/(?P<subject_id>[0-9]+)/$', views.view_pre_codes, name='pre_codes'),
-    url(r'', views.index, name='index'),
+    url(r'sub/(?P<subject_id>[0-9]+)/$', views.detail_subject, name='detail_subject'),
+    url(r'pract/(?P<practicle_id>[0-9]+)/$', views.detail_practicle, name='detail_practicle'),
+    url(r'', views.index, name='homepage'),
 ]

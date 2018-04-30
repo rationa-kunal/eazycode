@@ -1,0 +1,24 @@
+{% include "base.html" %}
+
+
+{% block titleblock %}
+
+<title>{{ subject.name }} - eazycodes</title>
+
+{% endblock %}
+
+
+{% block maniblock %}
+
+<div class="uk-container" style="margin-top:24px; margin-bottom:24px;" id="inner-cont">
+  <div class="uk-card uk-card-default uk-card-body uk-width-auto@m">
+    <h3 class="uk-card-title">{{ subject.name }}</h3>
+
+    {% for practicle in practicles %}
+    <a href="{% url 'detail_practicle' practicle.id %}" class="uk-button uk-button-default"><span class="uk-margin-small-right" uk-icon="icon: code"></span> {{practicle.aim}}</a>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}
