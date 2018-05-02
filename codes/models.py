@@ -18,3 +18,5 @@ class Practicle(models.Model):
     aim = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     code = models.TextField(blank=True)
+    contributor = models.CharField(max_length=100, blank=True)
+    contributor_url = models.URLField(default='www.google.co.in')
