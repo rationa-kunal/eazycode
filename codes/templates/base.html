@@ -28,7 +28,7 @@
         <li>
           <a href="#">Menu</a>
           <div class="uk-navbar-dropdown uk-navbar-dropdown-width-5">
-            <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
+            <div class="uk-navbar-dropdown-grid uk-child-width-1-{{ departments.count }}" uk-grid>
 
               {% for dept in departments %}
               <div>

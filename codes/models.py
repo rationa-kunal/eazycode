@@ -25,7 +25,8 @@ class Practicle(models.Model):
     description = models.CharField(max_length=1000)
     code = models.TextField(blank=True)
     contributor = models.CharField(max_length=100, blank=True)
-    contributor_url = models.URLField(default='www.google.co.in')
+    contributor_link = models.URLField(default='www.google.co.in')
+    download_all_link = models.URLField(blank=True)
 
     def __str__(self):
         return self.subject.name + " | " + self.aim
