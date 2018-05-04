@@ -15,10 +15,10 @@
     <h3 class="uk-card-title">{{ subject.name }}</h3>
 
     {% for practicle in practicles %}
-    <a href="{% url 'detail_practicle' practicle.id %}" class="uk-button uk-button-default"><span class="uk-margin-small-right" uk-icon="icon: code"></span> {{practicle.aim}}</a>
+    <a href="{% url 'detail_practicle' practicle.id %}" class="uk-button uk-button-default uk-margin-small-top uk-margin-small-right"><span class="uk-margin-small-right" uk-icon="icon: code"></span> {{practicle.aim}}</a>
     {% endfor %}
     <hr>
-    <a href="{{ practicle.download_all_link }}" class="uk-button uk-button-default"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Download All</a>
+    <a href="{{ subject.download_all_link }}" class="uk-button uk-button-default"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Download All</a>
 
   </div>
 </div>

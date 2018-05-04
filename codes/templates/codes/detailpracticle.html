@@ -14,18 +14,22 @@
   <div class="" uk-grid>
 
     <div class="uk-width-1-4@m">
-      <div class="uk-card uk-card-default uk-card-body uk-width-auto@m" uk-sticky="offset: 20">
+      <div class="uk-card uk-card-default uk-card-body uk-width-auto@m">
         <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
           <li class="uk-nav-header">{{ subject.name }}</li>
-          <li><a href="#top"><span class="uk-margin-small-right" uk-icon="icon: chevron-up"></span> top</a></li>
 
           {% for p in practicles %}
           <li><a href="{% url 'detail_practicle' p.id %}"><span class="uk-margin-small-right" uk-icon="icon: code"></span> {{p.aim}}</a></li>
           {% endfor %}
 
           <li class="uk-nav-divider"></li>
-          <li><a href="{{ p.download_all_link }}"><span class="uk-margin-small-right" uk-icon="icon: download"></span> Download All</a></li>
+          <li><a href="{{ subject.download_all_link }}"><span class="uk-margin-small-right" uk-icon="icon: download"></span> Download All</a></li>
 
+        </ul>
+      </div>
+      <div class="uk-card uk-card-default uk-card-body uk-width-exapnd uk-margin-top" uk-sticky="offset: 20">
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+          <li><a href="#top"><span class="uk-margin-small-right" uk-icon="icon: chevron-up"></span> top</a></li>
         </ul>
       </div>
     </div>
@@ -43,7 +47,7 @@
 
           <hr>
 
-          <pre><code class="language-cpp">
+          <pre><code class="language-{{ practicle.language }}">
             {{ practicle.code }}
           </code></pre>
 

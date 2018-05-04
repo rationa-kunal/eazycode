@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
 
-    {% block titleblock %}
-    <title>eazycode</title>
-    {% endblock %}
+  {% block titleblock %}
+  <title>eazycode</title>
+  {% endblock %}
 
 
   <meta charset="utf-8">
@@ -15,6 +15,23 @@
   {% load static %}
   <link rel="stylesheet" href="{% static "codes/css/prism.css" %}">
 
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5415989594482876",
+    enable_page_level_ads: true
+  });
+  </script>
+
+  <style media="screen">
+    body{
+      width: 100%;
+      min-height: 100vh;
+      background-color: #dcdde1;
+      background: linear-gradient(to bottom, #f5f6fa, #dcdde1);
+    }
+  </style>
+
 </head>
 <body>
 
@@ -23,7 +40,7 @@
     <div class="uk-navbar">
       <ul class="uk-navbar-nav">
 
-        <li class="uk-background-secondary uk-light uk-panel"><a href="{% url 'homepage' %}" class="uk-h4 uk-light" style="font-family: 'Comfortaa', cursive"> eazycode </a></li>
+        <li class="uk-background-secondary uk-light"><a href="{% url 'homepage' %}" class="uk-light" style="font-family: 'Comfortaa', cursive"> eazycode </a></li>
 
         <li>
           <a href="#">Menu</a>
@@ -61,7 +78,7 @@
 
   <main>
 
-      {% block mainblock %}{% endblock %}
+    {% block mainblock %}{% endblock %}
 
   </main>
 
@@ -77,6 +94,16 @@
   <script src="{% static "codes/js/sketch.min.js" %}"></script>
 
   {% block scriptblock %}{% endblock %}
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118623575-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118623575-1');
+  </script>
 
 </body>
 </html>
