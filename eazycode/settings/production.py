@@ -11,7 +11,7 @@ DATABASES = {
     )
 }
 
-MIDDLEWARE_CLASSES.append(
+MIDDLEWARE_CLASSES += (
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
